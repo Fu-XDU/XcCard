@@ -1,0 +1,68 @@
+<!--miniprogram/pages/redCard/redCard.wxml-->
+<image class="home" mode="aspectFit" src="../../images/r2.png"></image>
+<image mode="aspectFit"
+  style="position: relative; left: 66rpx; top: 42rpx; width: 621rpx; height: 79rpx; display: block; box-sizing: border-box"
+  src="../../images/img_red@2x.png" />
+<view
+  style="position: relative; width: 670rpx; background: #ffffff; min-height: 100px; left: 40rpx; top: -36rpx; height: 841rpx; display: block; box-sizing: border-box; border-radius: 25px">
+  <image mode="aspectFit"
+    style="position: relative; width: 706rpx; height: 142rpx; display: inline-block; box-sizing: border-box; left: -4rpx; top: -36rpx"
+    src="../../images/img_red@2x.png" />
+  <text class="text1" style="position: relative; left: 131rpx; top: -46rpx">{{phoneNumber}}的动态行程卡</text>
+  <text class="text2" style="position: relative; left: 70rpx; top: -22rpx">
+    更新于：{{nowTime}}</text>
+  <image mode="aspectFit"
+    style="position: relative; width: 410rpx; height: 480rpx; display: inline-block; box-sizing: border-box; left: 137rpx; top: -50rpx"
+    src="../../images/gif_red.gif" />
+
+  <view
+    style="position: relative; width: 590rpx; background: #d3d3d3; min-height: 1px; left: 47rpx; top: -62rpx; height: 0rpx; display: block; box-sizing: border-box">
+  </view>
+
+  <text class="text3" style="position: relative; left: 18rpx; top: -40rpx">您于前14天内到达或途经：<text
+      class="text4">河南省新乡市</text></text>
+</view>
+
+
+
+<text class="text5"
+  style="position: relative; left: 61rpx; top: -18rpx; width: 648rpx; height: 78rpx; display: block; box-sizing: border-box">结果包含您在前14天内到访的国家（地区）与停留4小时以上的国内城市
+</text>
+<text class="text5"
+  style="position: relative; left: 175rpx; top: -59rpx; width: 368rpx; height: 40rpx; display: block; box-sizing: border-box">色卡仅对到访地作提醒，不关联健康状况
+</text>
+<view
+  style="position: relative; width: 186rpx; background: #ffffff; min-height: 1px; height: 2rpx; display: block; box-sizing: border-box; left: 44rpx; top: -32rpx">
+</view>
+<text class="text6"
+  style="position: relative; left: 269rpx; top: -57rpx; width: 234rpx; height: 40rpx; display: block; box-sizing: border-box">本服务联合提供</text>
+<view
+  style="position: relative; width: 186rpx; background: #ffffff; min-height: 1px; height: 2rpx; display: block; box-sizing: border-box; left: 498rpx; top: -76rpx">
+</view>
+
+<image mode="aspectFit" src="../../images/xty0.png"
+  style="position: relative; width: 212rpx; height: 40rpx; display: block; box-sizing: border-box; left: 44rpx; top: -36rpx">
+</image>
+<image mode="aspectFit" src="../../images/dianxin0.png"
+  style="position: relative; width: 234rpx; height: 40rpx; display: block; box-sizing: border-box; left: 205rpx; top: -76rpx">
+</image>
+<image mode="aspectFit" src="../../images/yidong0.png"
+  style="position: relative; left: 376rpx; top: -116rpx; width: 186rpx; height: 40rpx; display: block; box-sizing: border-box">
+</image>
+<image mode="aspectFit" src="../../images/liant0.png"
+  style="position: relative; left: 542rpx; top: -156rpx; width: 134rpx; height: 40rpx; display: block; box-sizing: border-box">
+</image>
+<text class="text7"
+  style="position: relative; left: 150rpx; top: -134rpx; width: 449rpx; height: 40rpx; display: block; box-sizing: border-box">客服热线：10000 / 10086 / 10010</text>
+<!--这块有问题，不管了，不要了
+<view
+  style="position: relative; width: auto; background: #ffffff; min-height: auto; left: 0rpx; top: -108rpx; height: auto; display: block; box-sizing: border-box;">
+  <text class="text8" style="position: relative; left: 32rpx; top: 17rpx">通信行程卡APP来了！</text>
+  <text class="text9" style="position: relative; left: -268rpx; top: 66rpx">一键查询更方便</text>
+
+  <image mode="aspectFit" style="position: relative; width: 272rpx; height: 70rpx; display: inline-block; box-sizing: border-box; left: 290rpx; top: -18rpx"
+    src="../../images/Android.png" />
+    <image mode="aspectFit" style="position: relative; width: 272rpx; height: 70rpx; display: inline-block; box-sizing: border-box; left: 202rpx; top: -18rpx"
+    src="../../images/iOS.png" />
+</view>
+-->
