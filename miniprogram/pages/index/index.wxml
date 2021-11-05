@@ -19,8 +19,8 @@
     style="position: relative; width: 590rpx; background: #d3d3d3; min-height: 1px; left: 47rpx; top: -62rpx; height: 0rpx; display: block; box-sizing: border-box">
   </view>
 
-  <text class="text3" style="position: relative; left: 18rpx; top: -40rpx">您于前14天内到达或途经：<text
-      class="text4">河南省新乡市</text></text>
+  <text class="text3" style="position: relative; left: 18rpx; top: -40rpx" bindtap="changePlace">您于前14天内到达或途经：<text
+      class="text4">{{location}}</text></text>
 </view>
 
 

@@ -7,7 +7,8 @@ Page({
    */
   data: {
     nowTime: '1970.01.01 00:00:00',
-    phoneNumber: '188****8888'
+    phoneNumber: '188****8888',
+    location: '河南省新乡市'
   },
 
   /**
@@ -23,6 +24,35 @@ Page({
         nowTime: util.formatTime(new Date())
       })
     }, 500);
+    wx.getStorage({
+      key: 'location',
+      success(res) {
+        _this.setData({
+          location: res.data
+        })
+      }
+    })
+  },
+  changePlace: function () {
+    var _this = this
+    wx.showModal({
+      title: '修改地点',
+      editable: true,
+      //content: '这是一个模态弹窗',
+      placeholderText: '请输入地点',
+      success(res) {
+        if (res.confirm) {
+          console.log(res)
+          _this.setData({
+            location: res.content
+          })
+          wx.setStorage({
+            key: "location",
+            data: res.content
+          })
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
