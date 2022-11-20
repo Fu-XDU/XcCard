@@ -8,7 +8,7 @@ Page({
   data: {
     nowTime: '1970.01.01 00:00:00',
     phoneNumber: '188****8888',
-    location: '河南省新乡市'
+    location: '陕西省西安市'
   },
 
   /**
