@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/xianCode/xianCode",
     "pages/index/index",
     "pages/yellowCard/yellowCard",
     "pages/redCard/redCard"

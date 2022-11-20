@@ -14,16 +14,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
     var _this = this
     this.setData({
-      phoneNumber: util.randomPhoneNumber()
+      phoneNumber: util.randomPhoneNumber(),
+      nowTime: util.formatTime(new Date())
     })
-    setInterval(function () {
-      _this.setData({
-        nowTime: util.formatTime(new Date())
-      })
-    }, 500);
     wx.getStorage({
       key: 'location',
       success(res) {
@@ -32,8 +28,18 @@ Page({
         })
       }
     })
+    //this.autoRefreshTime()
   },
-  changePlace: function () {
+
+  autoRefreshTime() {
+    var _this = this
+    setInterval(function () {
+      _this.setData({
+        nowTime: util.formatTime(new Date())
+      })
+    }, 500);
+  },
+  changePlace() {
     var _this = this
     wx.showModal({
       title: '修改地点',
@@ -57,48 +63,48 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow() {
 
   },
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage() {
 
   }
 })

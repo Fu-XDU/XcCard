@@ -15,5 +15,6 @@ var formatTime = function (t) {
 }
 export {
   randomPhoneNumber,
-  formatTime
+  formatNumber,
+  formatTime,
 }
