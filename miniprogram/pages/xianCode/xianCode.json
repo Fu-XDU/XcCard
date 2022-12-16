@@ -2,6 +2,5 @@
   "usingComponents": {},
   "navigationBarTitleText": "陕西电子识别码",
   "navigationBarBackgroundColor":"#12ad81",
-  "navigationBarTextStyle":"white",
-  "disableScroll":true
+  "navigationBarTextStyle":"white"
 }

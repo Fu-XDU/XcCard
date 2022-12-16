@@ -10,7 +10,9 @@ Page({
     showPlaceIndex: 1,
     datetime: '1970-01-01 08:00:00',
     samplingTime: '01/01 08:00:00',
-    idNumber: [1, 28]
+    idNumber: [1, 28],
+    positive: false,
+    person_name: '*辰',
   },
 
   /**
@@ -28,6 +30,14 @@ Page({
       success(res) {
         _this.setData({
           places: res.data
+        })
+      }
+    })
+    wx.getStorage({
+      key: 'person_name',
+      success(res) {
+        _this.setData({
+          person_name: res.data
         })
       }
     })
@@ -113,6 +123,9 @@ Page({
       placeholderText: '请输入地点',
       success(res) {
         if (res.confirm) {
+          if (res.content.split(' ').join('').length == 0) {
+            return
+          }
           const dataIndex = _this.data.places.indexOf(res.content)
           if (dataIndex !== -1) {
             _this.data.places.splice(dataIndex, 1)
@@ -131,7 +144,45 @@ Page({
     })
   },
 
+  changePersonName() {
+    var _this = this
+    wx.showModal({
+      title: '修改姓名',
+      editable: true,
+      placeholderText: '请输入姓名',
+      success(res) {
+        if (res.confirm) {
+          const content = res.content.split(' ').join('');
+          const len = content.length
+          if (len == 0) {
+            return
+          }
+          _this.setData({
+            person_name: '*'.repeat(len - 1) + content.charAt(len - 1)
+          })
+          wx.setStorage({
+            key: "person_name",
+            data: _this.data.person_name
+          })
+        }
+      }
+    })
+  },
+
+  changePositive() {
+    this.setData({
+      positive: !this.data.positive
+    })
+  },
+
+  toCovidTestResult() {
+    wx.navigateTo({
+      url: '../covidTestResult/covidTestResult',
+    })
+  },
+
   toXcCard() {
+    
     wx.navigateTo({
       url: '../index/index',
     })

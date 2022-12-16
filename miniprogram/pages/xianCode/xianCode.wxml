@@ -1,5 +1,5 @@
 <!--pages/xianCode/xianCode.wxml-->
-<image mode="aspectFit" src="../../images/xianCode/background.png" style="width: 750rpx; height: 1622rpx; display: block; box-sizing: border-box"></image>
+<image src="../../images/xianCode/background.png" style="width: 750rpx; height: 1622rpx; display: block; box-sizing: border-box"></image>
 <view style="position: relative; width: 696rpx; background: #ffffff; min-height: 100px; left: 28rpx; top: -1580rpx; height: 268rpx; display: block; box-sizing: border-box; border-radius: 20rpx">
   <view style="position: relative; width: 137rpx; background: #12ad81; left: 530rpx; top: -10rpx; height: 69rpx; display: block; box-sizing: border-box; border-radius: 10rpx">
     <image mode="aspectFit" src="../../images/xianCode/location.png" style="position: relative; left: 15rpx; top: 5rpx; width: 46rpx; font-size: 30rpx; color: #ffffff; height: 58rpx; display: inline-block; box-sizing: border-box"></image>
@@ -17,7 +17,7 @@
 <view style="position: relative; width: 696rpx; background: #ffffff; min-height: 100px; left: 28rpx; top: -1551rpx; height: 568rpx; display: block; box-sizing: border-box; border-radius: 20rpx 20rpx 0 0">
   <image mode="aspectFit" src="../../images/xianCode/QRCode.png" style="position: relative; top: 90rpx; left: 165rpx; width: 366rpx; height: 363rpx; display: block; box-sizing: border-box"></image>
   <view style="position: relative; left: 305rpx; top: 128rpx; width: 86rpx; font-size: 42rpx; color: #07C975; height: 51rpx; display: block; box-sizing: border-box; font-weight: bold; text-align: center">绿码</view>
-  <view style="position: relative; left: 133rpx; top: -390rpx; width: 432rpx; font-size: 30rpx; color: #A6A6A6; height: 30rpx; display: block; box-sizing: border-box; text-align: center">*辰 {{idNumber[0]}}***************{{idNumber[1]}}</view>
+  <view style="position: relative; left: 133rpx; top: -390rpx; width: 432rpx; font-size: 30rpx; color: #A6A6A6; height: 30rpx; display: block; box-sizing: border-box; text-align: center" bindtap="changePersonName">{{person_name}} {{idNumber[0]}}***************{{idNumber[1]}}</view>
   <image mode="aspectFit" src="../../images/xianCode/scanned.png" style="position: relative; top: -366rpx; left: 541rpx; width: 140rpx; height: 129rpx; display: block; box-sizing: border-box"></image>
 </view>
 
@@ -30,11 +30,13 @@
     <view style="position: relative; left: 10rpx; top: 19rpx; width: 164rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">采样时间</view>
     <image mode="aspectFit" src="../../images/xianCode/question_mark.png" style="position: relative; top: -125rpx; left: 168rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box"></image>
     <image mode="aspectFit" src="../../images/xianCode/question_mark.png" style="position: relative; top: -55rpx; left: 168rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box"></image>
-    <view style="position: relative; left: 208rpx; top: -196rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">阴性</view>
-    <image mode="aspectFit" src="../../images/xianCode/24.png" style="position: relative; top: -310rpx; left: 288rpx; width: 106rpx; height: 115rpx; display: block; box-sizing: border-box"></image>
+    <view style="position: relative; left: 208rpx; top: -196rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">{{positive?'阳':'阴'}}性</view>
+    <image wx:if="{{positive}}" mode="aspectFit" src="../../images/xianCode/24-red.png" style="position: relative; top: -310rpx; left: 288rpx; width: 106rpx; height: 115rpx; display: block; box-sizing: border-box"></image>
+    <image wx:else mode="aspectFit" src="../../images/xianCode/24.png" style="position: relative; top: -310rpx; left: 288rpx; width: 106rpx; height: 115rpx; display: block; box-sizing: border-box"></image>
     <view style="position: relative; left: 393rpx; top: -361rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">小时</view>
-    <image mode="aspectFit" src="../../images/xianCode/refresh.png" style="position: relative; top: -402rpx; left: 475rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box"></image>
-    <image mode="aspectFit" src="../../images/xianCode/testTube.png" style="position: relative; top: -445rpx; left: 550rpx; width: 57rpx; height: 55rpx; display: block; box-sizing: border-box"></image>
+    <image wx:if="{{!positive}}" mode="aspectFit" src="../../images/xianCode/refresh.png" style="position: relative; top: -402rpx; left: 475rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box" bindtap="changePositive"></image>
+    <view  wx:if="{{positive}}" style="position: relative; top: -397rpx; left: 468rpx; width: 132rpx; height: 85rpx; display: block; box-sizing: border-box; font-size: 28rpx; color: #922f30" bindtap="changePositive">(单检阳性)</view>
+    <view  wx:else style="position: relative; top: -445rpx; left: 550rpx; width: 150rpx; height: 55rpx; display: block; box-sizing: border-box;font-size: 28rpx; color: #747474; height: 51rpx;"></view>
     <view style="position: relative; left: 208rpx; top: -396rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">今日</view>
     <image mode="aspectFit" src="../../images/xianCode/yi.png" style="position: relative; top: -448rpx; left: 281rpx; width: 57rpx; height: 45rpx; display: block; box-sizing: border-box"></image>
     <view style="position: relative; left: 337rpx; top: -491rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">采样</view>
@@ -44,10 +46,10 @@
 </view>
 
 <view style="position: relative; width: 696rpx; background: #ffffff; left: 28rpx; top: -1542rpx; height: 174rpx; display: block; box-sizing: border-box; border-radius:20rpx">
-  <image mode="aspectFit" src="../../images/xianCode/rna.png" style="position: relative; top: 18rpx; left: 69rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box"></image>
+  <image mode="aspectFit" src="../../images/xianCode/rna.png" style="position: relative; top: 18rpx; left: 69rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box" bindtap="toCovidTestResult"></image>
   <image mode="aspectFit" src="../../images/xianCode/vaccine.png" style="position: relative; top: -88rpx; left: 295rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box"></image>
   <image mode="aspectFit" src="../../images/xianCode/xcCard.png" style="position: relative; top: -193rpx; left: 531rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box" bindtap="toXcCard"></image>
-  <view style="position: relative; left: 19rpx; top: -193rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box">核酸检测查询</view>
+  <view style="position: relative; left: 19rpx; top: -193rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box" bindtap="toCovidTestResult">核酸检测查询</view>
   <view style="position: relative; left: 245rpx; top: -228rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box">疫苗接种查询</view>
   <view style="position: relative; left: 482rpx; top: -263rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box" bindtap="toXcCard">通信行程卡</view>
 </view>

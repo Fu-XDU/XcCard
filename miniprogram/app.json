@@ -3,7 +3,8 @@
     "pages/xianCode/xianCode",
     "pages/index/index",
     "pages/yellowCard/yellowCard",
-    "pages/redCard/redCard"
+    "pages/redCard/redCard",
+    "pages/covidTestResult/covidTestResult"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
