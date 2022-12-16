@@ -1,6 +1,6 @@
 <!--pages/xianCode/xianCode.wxml-->
 <image src="../../images/xianCode/background.png" style="width: 750rpx; height: 1622rpx; display: block; box-sizing: border-box"></image>
-<view style="position: relative; width: 696rpx; background: #ffffff; min-height: 100px; left: 28rpx; top: -1580rpx; height: 268rpx; display: block; box-sizing: border-box; border-radius: 20rpx">
+<view style="position: relative; width: 696rpx; background: #ffffff; min-height: 200rpx; left: 28rpx; top: -1580rpx; height: 268rpx; display: block; box-sizing: border-box; border-radius: 20rpx">
   <view style="position: relative; width: 137rpx; background: #12ad81; left: 530rpx; top: -10rpx; height: 69rpx; display: block; box-sizing: border-box; border-radius: 10rpx">
     <image mode="aspectFit" src="../../images/xianCode/location.png" style="position: relative; left: 15rpx; top: 5rpx; width: 46rpx; font-size: 30rpx; color: #ffffff; height: 58rpx; display: inline-block; box-sizing: border-box"></image>
     <view style="position: relative; left: 62rpx; top: -54rpx; width: 69rpx; font-size: 30rpx; color: #ffffff; height: 40rpx; display: block; box-sizing: border-box">其他</view>
@@ -14,7 +14,7 @@
 </view>
 
 
-<view style="position: relative; width: 696rpx; background: #ffffff; min-height: 100px; left: 28rpx; top: -1551rpx; height: 568rpx; display: block; box-sizing: border-box; border-radius: 20rpx 20rpx 0 0">
+<view style="position: relative; width: 696rpx; background: #ffffff; min-height: 200rpx; left: 28rpx; top: -1551rpx; height: 568rpx; display: block; box-sizing: border-box; border-radius: 20rpx 20rpx 0 0">
   <image mode="aspectFit" src="../../images/xianCode/QRCode.png" style="position: relative; top: 90rpx; left: 165rpx; width: 366rpx; height: 363rpx; display: block; box-sizing: border-box"></image>
   <view style="position: relative; left: 305rpx; top: 128rpx; width: 86rpx; font-size: 42rpx; color: #07C975; height: 51rpx; display: block; box-sizing: border-box; font-weight: bold; text-align: center">绿码</view>
   <view style="position: relative; left: 133rpx; top: -390rpx; width: 432rpx; font-size: 30rpx; color: #A6A6A6; height: 30rpx; display: block; box-sizing: border-box; text-align: center" bindtap="changePersonName">{{person_name}} {{idNumber[0]}}***************{{idNumber[1]}}</view>
@@ -23,8 +23,8 @@
 
 <image mode="aspectFit" src="../../images/xianCode/divider.png" style="position: relative; top: -1557rpx; left: 28rpx; width: 696rpx; height: 39rpx; display: block; box-sizing: border-box"></image>
 
-<view style="position: relative; width: 696rpx; background: #ffffff; min-height: 100px; left: 28rpx; top: -1562rpx; height: 268rpx; display: block; box-sizing: border-box; border-radius:0 0 20rpx 20rpx;">
-  <view style="position: relative; width: 618rpx; background: #e3f9f4; min-height: 100px; left: 39rpx; top: 47rpx; height: 190rpx; display: block; box-sizing: border-box; border-radius:20rpx">
+<view style="position: relative; width: 696rpx; background: #ffffff; min-height: 200rpx; left: 28rpx; top: -1562rpx; height: 268rpx; display: block; box-sizing: border-box; border-radius:0 0 20rpx 20rpx;">
+  <view style="position: relative; width: 618rpx; background: #e3f9f4; min-height: 200rpx; left: 39rpx; top: 47rpx; height: 190rpx; display: block; box-sizing: border-box; border-radius:20rpx">
     <view style="position: relative; left: 10rpx; top: 19rpx; width: 164rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">核酸结果</view>
     <image mode="aspectFit" src="../../images/xianCode/dash_line.png" style="position: relative; top: 19rpx; left: 0rpx; width: 618rpx; height: 51rpx; display: block; box-sizing: border-box"></image>
     <view style="position: relative; left: 10rpx; top: 19rpx; width: 164rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">采样时间</view>
