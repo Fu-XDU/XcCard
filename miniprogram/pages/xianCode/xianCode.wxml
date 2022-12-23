@@ -30,28 +30,33 @@
     <view style="position: relative; left: 10rpx; top: 19rpx; width: 164rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">采样时间</view>
     <image mode="aspectFit" src="../../images/xianCode/question_mark.png" style="position: relative; top: -125rpx; left: 168rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box"></image>
     <image mode="aspectFit" src="../../images/xianCode/question_mark.png" style="position: relative; top: -55rpx; left: 168rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box"></image>
-    <view style="position: relative; left: 208rpx; top: -196rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">{{positive?'阳':'阴'}}性</view>
-    <image wx:if="{{positive}}" mode="aspectFit" src="../../images/xianCode/24-red.png" style="position: relative; top: -310rpx; left: 288rpx; width: 106rpx; height: 115rpx; display: block; box-sizing: border-box"></image>
-    <image wx:else mode="aspectFit" src="../../images/xianCode/24.png" style="position: relative; top: -310rpx; left: 288rpx; width: 106rpx; height: 115rpx; display: block; box-sizing: border-box"></image>
-    <view style="position: relative; left: 393rpx; top: -361rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">小时</view>
-    <image wx:if="{{!positive}}" mode="aspectFit" src="../../images/xianCode/refresh.png" style="position: relative; top: -402rpx; left: 475rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box" bindtap="changePositive"></image>
-    <view  wx:if="{{positive}}" style="position: relative; top: -397rpx; left: 468rpx; width: 132rpx; height: 85rpx; display: block; box-sizing: border-box; font-size: 28rpx; color: #922f30" bindtap="changePositive">(单检阳性)</view>
-    <view  wx:else style="position: relative; top: -445rpx; left: 550rpx; width: 150rpx; height: 55rpx; display: block; box-sizing: border-box;font-size: 28rpx; color: #747474; height: 51rpx;"></view>
-    <view style="position: relative; left: 208rpx; top: -396rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">今日</view>
-    <image mode="aspectFit" src="../../images/xianCode/yi.png" style="position: relative; top: -448rpx; left: 281rpx; width: 57rpx; height: 45rpx; display: block; box-sizing: border-box"></image>
-    <view style="position: relative; left: 337rpx; top: -491rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">采样</view>
-    <view style="position: relative; left: 425rpx; top: -552rpx; width: 164rpx; font-size: 24rpx; color: #747474; height: 31rpx; display: block; box-sizing: border-box; text-align: center">最近采样时间</view>
-    <view style="position: relative; left: 420rpx; top: -552rpx; width: 174rpx; font-size: 24rpx; color: #747474; height: 31rpx; display: block; box-sizing: border-box; text-align: center">{{samplingTime}}</view>
+    <view wx:if="{{hasCovidTestResult}}" style="position: relative; left: 208rpx; top: -196rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">{{positive?'阳':'阴'}}性</view>
+    <view wx:else style="position: relative; left: 208rpx; top: -196rpx; width: 106rpx; font-size: 38rpx; color: #747474; height: 44rpx; display: block; box-sizing: border-box">7日内</view>
+    <image wx:if="{{hasCovidTestResult&&positive}}" mode="aspectFit" src="../../images/xianCode/24-red.png" style="position: relative; top: -310rpx; left: 288rpx; width: 106rpx; height: 115rpx; display: block; box-sizing: border-box" bindtap="changePositive"></image>
+    <image wx:if="{{hasCovidTestResult&&!positive}}" mode="aspectFit" src="../../images/xianCode/24.png" style="position: relative; top: -310rpx; left: 288rpx; width: 106rpx; height: 115rpx; display: block; box-sizing: border-box" bindtap="changeHasCovidTestResult"></image>
+    <image wx:if="{{!hasCovidTestResult}}" mode="aspectFit" src="../../images/xianCode/none.png" style="position: relative; top: -300rpx; left: 308rpx; width: 80rpx; height: 125rpx; display: block; box-sizing: border-box" bindtap="changeHasCovidTestResult"></image>
+    <view wx:if="{{hasCovidTestResult}}" style="position: relative; left: 393rpx; top: -361rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">小时</view>
+    <image wx:if="{{!positive&&hasCovidTestResult}}" mode="aspectFit" src="../../images/xianCode/refresh.png" style="position: relative; top: -402rpx; left: 475rpx; width: 25rpx; height: 31rpx; display: block; box-sizing: border-box" bindtap="changePositive"></image>
+    <image wx:if="{{!hasCovidTestResult}}" mode="aspectFit" src="../../images/xianCode/refresh.png" style="position: relative; top: -375rpx; left: 401rpx; width: 24rpx; height: 77rpx; display: block; box-sizing: border-box"></image>
+    <view wx:if="{{positive}}" style="position: relative; top: -397rpx; left: 468rpx; width: 132rpx; height: 85rpx; display: block; box-sizing: border-box; font-size: 28rpx; color: #922f30" bindtap="changePositive">(单检阳性)</view>
+    <view wx:else style="position: relative; top: -445rpx; left: 550rpx; width: 150rpx; height: 55rpx; display: block; box-sizing: border-box;font-size: 28rpx; color: #747474; height: 51rpx;"></view>
+    <view style="position: relative; left: 207rpx; top: -390rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">今日</view>
+    <image wx:if="{{hasCovidTestResult}}" mode="aspectFit" src="../../images/xianCode/yi.png" style="position: relative; top: -446rpx; left: 277rpx; width: 57rpx; height: 45rpx; display: block; box-sizing: border-box"></image>
+    <image wx:if="{{!hasCovidTestResult}}" mode="aspectFit" src="../../images/xianCode/not.png" style="position: relative; top: -441rpx; left: 274rpx; width: 57rpx; height: 45rpx; display: block; box-sizing: border-box"></image>
+    <view style="position: relative; left: 330rpx; top: -484rpx; width: 77rpx; font-size: 38rpx; color: #747474; height: 51rpx; display: block; box-sizing: border-box">采样</view>
+    <view wx:if="{{hasCovidTestResult}}" style="position: relative; left: 425rpx; top: -552rpx; width: 164rpx; font-size: 24rpx; color: #747474; height: 31rpx; display: block; box-sizing: border-box; text-align: center">最近采样时间</view>
+    <view wx:if="{{hasCovidTestResult}}" style="position: relative; left: 420rpx; top: -552rpx; width: 174rpx; font-size: 24rpx; color: #747474; height: 31rpx; display: block; box-sizing: border-box; text-align: center">{{samplingTime}}</view>
   </view>
 </view>
 
 <view style="position: relative; width: 696rpx; background: #ffffff; left: 28rpx; top: -1542rpx; height: 174rpx; display: block; box-sizing: border-box; border-radius:20rpx">
-  <image mode="aspectFit" src="../../images/xianCode/rna.png" style="position: relative; top: 18rpx; left: 69rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box" bindtap="toCovidTestResult"></image>
-  <image mode="aspectFit" src="../../images/xianCode/vaccine.png" style="position: relative; top: -88rpx; left: 295rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box"></image>
-  <image mode="aspectFit" src="../../images/xianCode/xcCard.png" style="position: relative; top: -193rpx; left: 531rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box" bindtap="toXcCard"></image>
-  <view style="position: relative; left: 19rpx; top: -193rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box" bindtap="toCovidTestResult">核酸检测查询</view>
-  <view style="position: relative; left: 245rpx; top: -228rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box">疫苗接种查询</view>
-  <view style="position: relative; left: 482rpx; top: -263rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box" bindtap="toXcCard">通信行程卡</view>
+  <image mode="aspectFit" src="../../images/xianCode/rna.png" style="position: relative; top: 18rpx; left: 165rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box" bindtap="toCovidTestResult"></image>
+  <image mode="aspectFit" src="../../images/xianCode/vaccine.png" style="position: relative; top: -86rpx; left: 442rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box"></image>
+
+  <view style="position: relative; left: 115rpx; top: -86rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box;color: #424242;" bindtap="toCovidTestResult">核酸检测查询</view>
+  <view style="position: relative; left: 392rpx; top: -121rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box;color: #424242;">疫苗接种查询</view>
+  <!-- <image mode="aspectFit" src="../../images/xianCode/xcCard.png" style="position: relative; top: -193rpx; left: 531rpx; width: 80rpx; height: 104rpx; display: block; box-sizing: border-box" bindtap="toXcCard"></image> -->
+  <!-- <view style="position: relative; left: 482rpx; top: -263rpx; width: 179rpx; font-size: 25rpx; text-align: center; height: 36rpx; display: block; box-sizing: border-box" bindtap="toXcCard">通信行程卡</view> -->
 </view>
 
 <view style="position: relative; left: 66rpx; top: -1506rpx; width: 620rpx; font-size: 25rpx; color: #A6A6A6; text-align: center">陕西省应对新冠疫情工作领导小组办公室</view>

@@ -11,6 +11,7 @@ Page({
     datetime: '1970-01-01 08:00:00',
     samplingTime: '01/01 08:00:00',
     idNumber: [1, 28],
+    hasCovidTestResult: false,
     positive: false,
     person_name: '*辰',
   },
@@ -175,6 +176,12 @@ Page({
     })
   },
 
+  changeHasCovidTestResult() {
+    this.setData({
+      hasCovidTestResult: !this.data.hasCovidTestResult
+    })
+  },
+
   toCovidTestResult() {
     wx.navigateTo({
       url: '../covidTestResult/covidTestResult',
@@ -182,7 +189,6 @@ Page({
   },
 
   toXcCard() {
-    
     wx.navigateTo({
       url: '../index/index',
     })
